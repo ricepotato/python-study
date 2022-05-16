@@ -1,3 +1,4 @@
+import time
 import logging
 import threading
 
@@ -13,6 +14,7 @@ def thread_func(name, d):
     """메인 thread 가 끝나더라도 sub thread 가 작업을 완료함"""
     log.info("Sub-Thread %s : strting", name)
     for i in d:
+        time.sleep(0.1)
         print(i)
     log.info("Sub-Thread %s : finished", name)
 

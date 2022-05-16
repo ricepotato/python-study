@@ -15,6 +15,7 @@ def task(name):
 
     result = 0
     for i in range(10000):
+        log.info("Sub - Thread %s : processing", name)
         result += i
 
     log.info("Sub - Thread %s : finishing result %s", name, result)
