@@ -1,13 +1,17 @@
 from datetime import datetime
 from typing import Callable
+import functools
+
+GreetingReader = Callable[[], str]
+GreetingFunction = Callable[[str], str]
 
 
-def greet(name: str, greeting_intro: str) -> str:
-    return f"{greeting_intro}, {name}"
+def greet(name: str, greeting_reader: GreetingReader) -> str:
+    return f"{greeting_reader()}, {name}"
 
 
-def greet_list(names: list[str], greeting_intro: str) -> list[str]:
-    return [greet(name, greeting_intro) for name in names]
+def greet_list(names: list[str], greeting_fn: GreetingFunction) -> list[str]:
+    return [greeting_fn(name) for name in names]
 
 
 def read_greeting() -> str:
@@ -22,10 +26,9 @@ def read_greeting() -> str:
 
 def main() -> None:
     name = "ricepotato"
-    greeting_intro = read_greeting()
-
-    print(greet(name, greeting_intro))
-    print(greet_list(["John", "Jane", "Joe"], greeting_intro))
+    greet_fn = functools.partial(greet, greeting_reader=read_greeting)
+    print(greet_fn(name))
+    print(greet_list(["John", "Jane", "Joe"], greet_fn))
 
 
 if __name__ == "__main__":
