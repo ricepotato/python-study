@@ -13,7 +13,7 @@ class TradingStrategy(Protocol):
         raise NotImplementedError()
 
 
-class AverageTradingStrategy(TradingStrategy):
+class AverageTradingStrategy:
     def should_buy(self, prices: list[int]) -> bool:
         list_window = prices[-3:]
         return prices[-1] < statistics.mean(list_window)
@@ -23,7 +23,7 @@ class AverageTradingStrategy(TradingStrategy):
         return prices[-1] > statistics.mean(list_window)
 
 
-class MinMaxStrategy(TradingStrategy):
+class MinMaxStrategy:
     def should_buy(self, prices: list[int]) -> bool:
         return prices[-1] < 32_000_00
 
