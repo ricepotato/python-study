@@ -1,16 +1,12 @@
 {
   "editor.formatOnSave": true,
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "black",
-  "python.linting.enabled": true,
-  "python.linting.mypyEnabled": true,
-  "python.linting.mypyPath": "mypy",
-  "python.linting.mypyArgs": [
-    "--follow-imports=silent",
-    "--ignore-missing-imports",
-    "--show-column-numbers",
-    "--no-pretty"
-  ],
+  "[python]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "gitlens.codeLens.symbolScopes": ["!Module"],
+    "editor.formatOnType": true,
+    "editor.wordBasedSuggestions": false,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Path": "flake8",
   "python.linting.flake8Args": ["--ignore=E501"],
@@ -22,5 +18,8 @@
     "gitlens.codeLens.scopes": ["document"],
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "python.testing.pytestArgs": ["."],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
 }

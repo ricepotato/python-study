@@ -1,5 +1,9 @@
 # python study
 
+## python tools extensions
+
+https://github.com/microsoft/vscode-python/wiki/Migration-to-Python-Tools-Extensions
+
 ## thread
 
 ### daemon thread

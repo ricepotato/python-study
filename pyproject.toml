@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "python-study"
+version = "0.1.0"
+description = ""
+authors = ["Ben <ben@ahnlab.io>"]
+readme = "README.md"
+packages = [{include = "python_study"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.1.0"
+pytest = "^7.4.2"
+black = "^23.9.1"
+mypy = "^1.5.1"
+pylint = "^2.17.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
